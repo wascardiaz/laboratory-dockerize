@@ -1,0 +1,20 @@
+version: '3.9' # optional since v1.27.0
+services:
+  docker-frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./frontend/src:/frontend/src
+
+  docker-backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./backend:/backend
+      
